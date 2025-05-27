@@ -32,12 +32,12 @@ const saveUsers = () => {
 };
 
 // find all users
-const findAllUsers = async (): Promise<UnitUser[]> => {
+export const findAllUsers = async (): Promise<UnitUser[]> => {
   return Object.values(users);
 };
 
 // find one user
-const findUser = async (id: string): Promise<UnitUser> => {
+export const findUser = async (id: string): Promise<UnitUser> => {
   return users[id];
 };
 
@@ -71,7 +71,7 @@ export const createUser = async (userData: UnitUser): Promise<UnitUser | null> =
 };
 
 // find user by email
-const findUserByEmail = async (email: string): Promise<UnitUser | null> => {
+export const findUserByEmail = async (email: string): Promise<UnitUser | null> => {
   const getAllUsers = await findAllUsers();
 
   const user = getAllUsers.find((result) => email === result.email);
