@@ -2,6 +2,7 @@ import * as dotevnv from "dotenv";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
+import { userRouter } from "./users/user.routes";
 
 dotevnv.config();
 
@@ -17,6 +18,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(helmet());
+
+app.use("/", userRouter);
 
 // listen for a port
 app.listen(PORT, () => {
